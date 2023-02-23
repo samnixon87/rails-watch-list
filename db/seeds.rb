@@ -8,6 +8,12 @@
 
 pp "Starting to seed"
 
-1
+100.times do
+  Movie.create(
+    title: Faker::Movie.title,
+    overview: Faker::Movies::StarWars.quote,
+    poster_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ['sports']),
+    rating: rand(1.0..10.0))
+end
 
 pp "Done seeding"

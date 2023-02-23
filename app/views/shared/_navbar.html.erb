@@ -1,0 +1,18 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <div class="container">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "" %>
+    <% end %>
+
+    <div class="navbar-collapse">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to "My list", lists_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New lists", new_list_path, class: "nav-link" %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>

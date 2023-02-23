@@ -1,0 +1,9 @@
+  <div class="container">
+    <div class="row py-5 col-6">
+      <%= simple_form_for([@list, @bookmark]) do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>

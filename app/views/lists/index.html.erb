@@ -1,0 +1,18 @@
+<div class="px-4 py-5 my-5 d-flex align-items-center justify-content-center" style="
+          background-image: url('/app/assets/images/picturehouse.jpg');
+          height: 400px";>
+  <div class="display-5 fw-bold">Save any kind of movie</div>
+</div>
+<div class="container">
+  <div class="row d-flex justify-content-around m-5">
+    <% @lists.each do |list| %>
+        <div class="card p-5 m-3 bg-image" style="width: 18rem; background-image: '/app/assets/images/clapper.jpg';">
+          <%= link_to list_path(list) do %>
+          <div class="card-body d-flex align-items-center justify-content-center ">
+            <h5 class="card-title"><%= list.name %></h5>
+          </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
