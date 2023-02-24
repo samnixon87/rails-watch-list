@@ -1,5 +1,5 @@
-  <div class="container">
-    <div class="row py-5 col-6">
+  <div class="container d-flex justify-content-center">
+    <div class="row col-6 m-5">
       <%= simple_form_for([@list, @bookmark]) do |f| %>
         <%= f.association :movie %>
         <%= f.input :comment %>
