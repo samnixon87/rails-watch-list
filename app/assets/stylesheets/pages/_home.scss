@@ -1,5 +1,14 @@
 // Specific CSS for your home-page
 
-.try {
-  background-image: asset-url("clapper.jpg");
+.home-hero {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), asset-url("picturehouse.jpg");
+  height: 500px;
+  background-size: cover;
+}
+
+.card-title {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

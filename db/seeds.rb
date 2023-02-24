@@ -6,14 +6,26 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+pp "Purging..."
+Bookmark.destroy_all
+Movie.destroy_all
+pp "Purged."
+
+url = "http://tmdb.lewagon.com/movie/top_rated"
+
 pp "Starting to seed"
 
-100.times do
-  Movie.create(
-    title: Faker::Movie.title,
-    overview: Faker::Movies::StarWars.quote,
-    poster_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ['sports']),
-    rating: rand(1.0..10.0))
+100.times do |i|
+  movies = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)['results']
+  movies.each do |movie|
+      poster = "https://image.tmdb.org/t/p/original"
+      Movie.create(
+        title: movie['title'],
+        overview: movie['overview'],
+        poster_url: "#{poster}#{movie['backdrop_path']}",
+        rating: movie['vote_average']
+      )
+  end
 end
 
 pp "Done seeding"

@@ -1,25 +1,38 @@
-<div class="container">
-  <div class="try px-4 py-5 my-5 d-flex align-items-center justify-content-center">
-    <div class="display-5 fw-bold text-light">
-      <%= @list.name %>
+  <% if @list.photo.attached? %>
+    <div class="list-banner d-flex align-items-center justify-content-center"  style="background-image: linear-gradient(rgba(0,0,0,0.3),
+              rgba(0,0,0,0.3)),
+              url('<%= cl_image_path @list.photo.key %>'); height: 500px;">
+      <div class="display-5 fw-bold text-light">
+        <%= @list.name %>
+      </div>
     </div>
-  </div>
+  <% else %>
+      <div class="list-banner-without-photo d-flex align-items-center justify-content-center">
+      <div class="display-5 fw-bold text-light">
+        <%= @list.name %>
+      </div>
+    </div>
+  <% end %>
+<div class="container">
   <div class="add-button d-flex justify-content-end m-3">
     <%= link_to "Add a movie", new_list_bookmark_path(@list), class:"btn btn-success" %>
   </div>
   <div class="row d-flex justify-content-center">
     <% @bookmarks.each do |bookmark| %>
       <div class="card m-3" style="width: 25rem;">
-        <img class="card-img-top" src= "asset_url(seats.jpg)" alt="Card image cap">
+        <img class="card-img-top mt-3" src="<%= bookmark.movie.poster_url %>" alt="Card image cap">
         <div class="card-head d-flex justify-content-between">
           <h3 class="card-title p-3"><%= bookmark.movie.title %></h5>
-          <p class="p-3"> <%= bookmark.movie.rating %></p>
+          <p class="p-3"><%= bookmark.movie.rating.round(2)%> ⭐️</i></p>
         </div>
         <div class="card-body">
           <p class="card-text"><%= bookmark.movie.overview %></p>
         </div>
         <div class="card-body">
-          <p class="card-link d-flex justify-content-end"> <%= link_to "Delete", bookmark_path %></p>
+           <div>
+              <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+            </div>
+          <small class="card-link d-flex justify-content-end"> <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this movie from #{@list.name}?"}%></small>
         </div>
       </div>
     <% end %>

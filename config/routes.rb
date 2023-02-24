@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # As a user, I can see the details of a movie list
   # As a user, I can bookmark a movie inside a movie list
   # As a user, I can destroy a bookmark
+  root to: "lists#index"
 
   resources :lists, only: %i[index show new create] do
     resources :bookmarks, only: %i[new create]

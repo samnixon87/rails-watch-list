@@ -1,0 +1,12 @@
+.list-banner {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  background-position: center;
+  background-size: cover;
+}
+
+.list-banner-without-photo {
+  background-image: asset-url('seats.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
