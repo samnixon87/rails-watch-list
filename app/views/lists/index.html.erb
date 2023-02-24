@@ -2,24 +2,28 @@
   <div class="display-5 fw-bold text-light">Save any kind of movie</div>
 </div>
 <div class="container">
-  <div class="row d-flex justify-content-around m-5">
-    <% @lists.each do |list| %>
-
-      <% if list.photo.attached? %>
-        <div class="list-card card p-5 m-3 bg-image"  style="background-image: linear-gradient(rgba(0,0,0,0.3),
-                  rgba(0,0,0,0.3)),
-                  url('<%= cl_image_path list.photo.key %>');
-                  width: 18rem;">
-      <% else %>
-        <div class="list-card card p-5 m-3 bg-image" style="width: 18rem;">
-      <% end %>
-      <%= link_to list_path(list) do %>
-        <div class="card-category d-flex align-items-center justify-content-center">
-          <h5 class="card-title"><%= list.name %></h5>
+  <div class="row">
+    <div class="row d-flex justify-content-around m-5">
+      <div class="add-button d-flex justify-content-between">
+        <h1 class="p-2">My Lists</h1>
+        <div class="button align-top">
+          <%= link_to "Add a list", new_list_path, class:"btn btn-success" %>
         </div>
+      </div>
+      <% @lists.each do |list| %>
+        <% if list.photo.attached? %>
+          <div class="list-card card p-5 m-3 bg-image d-flex align-items-center justify-content-center"  style="background-image: linear-gradient(rgba(0,0,0,0.3),
+                    rgba(0,0,0,0.3)),
+                    url('<%= cl_image_path list.photo.key %>');">
+        <% else %>
+          <div class="list-card-blank card p-5 m-3 bg-image d-flex align-items-center justify-content-center">
+        <% end %>
+        <%= link_to list_path(list) do %>
+          <div class="card-title"><h5><%= list.name %></h5></div>
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <% end %>
+  </div>
 
   </div>
 </div>

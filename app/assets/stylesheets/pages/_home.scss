@@ -11,4 +11,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+
+}
+
+.card-title h5 {
+  text-decoration: none;
+}
+
+.list-card {
+  width: 24rem;
+  height: 12rem;
+  border-radius: 2px;
+  box-shadow: 1 1 1 1;
+  text-decoration: none;
+  background-position: center;
+  background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  color: white;
+  border-radius: 4px;
+  box-shadow: 1px, 1px, 1px,rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.list-card-blank {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), asset-url("picturehouse.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 24rem;
+  height: 12rem;
+  border-radius: 2px;
+  box-shadow: 1 1 1 1;
+  text-decoration: none;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 1px, 1px, 1px,rgba(0, 0, 0, 0.5);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.4s ease-in-out;
+}
+
+a:hover {
+  transform: scale(0.95);
+  color: white;
 }
